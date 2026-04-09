@@ -41,6 +41,7 @@ i18n
           kashrut: "בד\"ץ העדה החרדית | מחפוד | רובין | הרב אפרתי",
           // Event Details
           event_details: "פרטי האירוע",
+          prepare_event: "המשך לפרטי האירוע", // Added
           event_date: "תאריך האירוע",
           event_time: "שעה",
           event_location: "מיקום",
@@ -124,6 +125,7 @@ i18n
           kashrut: "Kashrut: Badatz Edah HaChareidit | Mahpud",
           // Event Details
           event_details: "Event Details",
+          prepare_event: "Continue to Event Details", // Added
           event_date: "Event Date",
           event_time: "Time",
           event_location: "Location",
@@ -207,6 +209,7 @@ i18n
           kashrut: "Cacher: Badatz Edah HaChareidit | Mahpud",
           // Event Details
           event_details: "Détails de l'événement",
+          prepare_event: "Continuer vers les détails de l'événement", // Added
           event_date: "Date de l'événement",
           event_time: "Heure",
           event_location: "Lieu",

@@ -10,15 +10,22 @@ export const Navigation = ({
 
   const cartCount = selectedSalads.length;
 
+  // New: Handle cart click logic
+  const handleCartClick = () => {
+    if (cartCount > 0) {
+      setShowRecommendations(false); // Ensure modal is closed
+      setCurrentStep('summary');
+    }
+  };
+
   return (
-    // Changed: bg-black/40 for transparency, border-white/10 for a subtle edge
     <nav className="p-3 fixed top-0 w-full z-50 flex justify-between items-center bg-black/40 backdrop-blur-md shadow-lg border-b border-white/10">
       <div className="flex items-center gap-4 lg:gap-8">
         {/* Logo */}
         <img
           src={logo}
           alt="Logo"
-          className="h-10 w-auto cursor-pointer brightness-110" // Added brightness to make logo pop
+          className="h-10 w-auto cursor-pointer brightness-110"
           onClick={() => {
             setShowRecommendations(false);
             setCurrentStep('home');
@@ -32,7 +39,6 @@ export const Navigation = ({
             e.stopPropagation();
             setShowRecommendations(true);
           }}
-          // Changed: text-white/90 and hover:text-amber-400
           className="relative z-[60] flex items-center gap-1.5 text-sm font-bold text-white/90 hover:text-amber-400 transition-colors py-2 px-1"
         >
           <MessageSquare size={16} className="text-amber-500" />
@@ -45,7 +51,6 @@ export const Navigation = ({
         <div className="relative">
           <button
             onClick={() => setIsLangOpen(!isLangOpen)}
-            // Changed: text-white/90
             className="flex items-center gap-2 text-sm font-bold text-white/90 hover:text-amber-400 transition-colors uppercase"
           >
             <Globe size={16} className="text-amber-500" />
@@ -54,7 +59,6 @@ export const Navigation = ({
           </button>
 
           {isLangOpen && (
-            // Changed: Dark background for the dropdown to match
             <ul className="absolute top-full mt-2 bg-slate-900 border border-white/10 shadow-2xl rounded-xl py-2 w-32 z-[60] left-0 right-auto rtl:right-0 rtl:left-auto">
               {languages.map((lang) => (
                 <li
@@ -74,13 +78,15 @@ export const Navigation = ({
           <Phone size={16} className="text-amber-500" /> 052-7977394
         </a>
 
-        {/* Cart Icon */}
+        {/* Cart Icon - Logic updated here */}
         <div
-          className="relative cursor-pointer group"
-          onClick={() => currentStep !== 'home' && setCurrentStep('summary')}
+          className={`relative group ${cartCount > 0 ? 'cursor-pointer' : 'cursor-default opacity-50'}`}
+          onClick={handleCartClick}
         >
-          {/* Changed: text-amber-500 */}
-          <ShoppingCart className="text-amber-500 group-hover:scale-110 transition-transform" size={22} />
+          <ShoppingCart
+            className="text-amber-500 group-hover:scale-110 transition-transform"
+            size={22}
+          />
           {cartCount > 0 && (
             <span className="absolute -top-2 -right-2 bg-amber-600 text-white text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center animate-bounce shadow-md">
               {cartCount}

@@ -51,7 +51,7 @@ export const ExtrasStep = ({ logic }) => {
           onClick={() => setCurrentStep('event')}
           className="bg-slate-900 text-white px-10 py-4 rounded-full font-bold text-lg hover:bg-black transition-all flex items-center gap-3 shadow-lg active:scale-95"
         >
-          {t('view_summary')}
+          {t('prepare_event')}
           <ArrowRight size={18} className={isRTL ? 'rotate-180' : ''} />
         </button>
       </div>

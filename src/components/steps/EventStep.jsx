@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Calendar, Clock, MapPin, Users, UserCheck, Star, ArrowLeft } from 'lucide-react'; // Added ArrowLeft
+import { Calendar, Clock, MapPin, Users, UserCheck, Star, ArrowLeft } from 'lucide-react';
 
 export const EventStep = ({ logic }) => {
   const { t, i18n, eventData = {}, updateEventData, setCurrentStep } = logic;
@@ -21,13 +21,19 @@ export const EventStep = ({ logic }) => {
     { id: 'yorstseit', icon: '⛪' },
   ];
 
-  const isFormValid = eventData.date && eventData.type && eventData.location;
+  // Removed isFormValid logic as details are now optional
 
   return (
     <div className="max-w-4xl mx-auto px-4 py-10 bg-white shadow-xl rounded-3xl border border-slate-100 animate-in fade-in duration-500">
-      <h2 className="text-3xl font-black text-slate-900 mb-8 border-b pb-6 text-start">
-        {t('event_details')}
-      </h2>
+      <div className="flex justify-between items-center mb-8 border-b pb-6">
+        <h2 className="text-3xl font-black text-slate-900 text-start">
+          {t('event_details')}
+        </h2>
+        {/* Added a small "Optional" badge */}
+        <span className="text-xs bg-slate-100 text-slate-500 px-3 py-1 rounded-full font-bold uppercase tracking-wider">
+          {isRTL ? 'אופציונלי' : 'Optional'}
+        </span>
+      </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
         <div className="space-y-4">
@@ -38,7 +44,7 @@ export const EventStep = ({ logic }) => {
             <input
               type="date"
               className="w-full p-3 rounded-xl border-2 border-slate-100 focus:border-amber-500 outline-none transition-all"
-              value={eventData.date}
+              value={eventData.date || ''}
               onChange={(e) => updateEventData('date', e.target.value)}
             />
           </label>
@@ -49,7 +55,7 @@ export const EventStep = ({ logic }) => {
             <input
               type="time"
               className="w-full p-3 rounded-xl border-2 border-slate-100 focus:border-amber-500 outline-none transition-all"
-              value={eventData.time}
+              value={eventData.time || ''}
               onChange={(e) => updateEventData('time', e.target.value)}
             />
           </label>
@@ -64,7 +70,7 @@ export const EventStep = ({ logic }) => {
               type="text"
               placeholder={t('enter_location', 'הכנס מיקום אירוע')}
               className="w-full p-3 rounded-xl border-2 border-slate-100 focus:border-amber-500 outline-none transition-all"
-              value={eventData.location}
+              value={eventData.location || ''}
               onChange={(e) => updateEventData('location', e.target.value)}
             />
           </label>
@@ -76,7 +82,7 @@ export const EventStep = ({ logic }) => {
               <input
                 type="number"
                 className="w-full p-3 rounded-xl border-2 border-slate-100 focus:border-amber-500 outline-none transition-all"
-                value={eventData.guests}
+                value={eventData.guests || ''}
                 onChange={(e) => updateEventData('guests', e.target.value)}
               />
             </label>
@@ -87,7 +93,7 @@ export const EventStep = ({ logic }) => {
               <input
                 type="number"
                 className="w-full p-3 rounded-xl border-2 border-slate-100 focus:border-amber-500 outline-none transition-all"
-                value={eventData.servers}
+                value={eventData.servers || ''}
                 onChange={(e) => updateEventData('servers', e.target.value)}
               />
             </label>
@@ -117,7 +123,6 @@ export const EventStep = ({ logic }) => {
         </div>
       </div>
 
-      {/* Fixed Footer with Back and Next buttons */}
       <div className="pt-8 border-t flex justify-center gap-4">
         <button
           onClick={() => setCurrentStep('extras')}
@@ -127,10 +132,10 @@ export const EventStep = ({ logic }) => {
           {t('back', 'חזרה')}
         </button>
 
+        {/* Button is now always enabled */}
         <button
           onClick={() => setCurrentStep('summary')}
-          disabled={!isFormValid}
-          className="bg-slate-900 text-white px-12 py-4 rounded-full font-bold text-lg hover:bg-black transition-all disabled:opacity-30"
+          className="bg-slate-900 text-white px-12 py-4 rounded-full font-bold text-lg hover:bg-black transition-all shadow-lg active:scale-95 flex items-center gap-2"
         >
           {t('view_summary')}
         </button>
