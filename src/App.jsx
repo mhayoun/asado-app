@@ -5,12 +5,14 @@ import { SummaryBar } from './components/SummaryBar';
 import { HomeStep } from './components/steps/HomeStep';
 import { SaladStep } from './components/steps/SaladStep';
 import { MainStep } from './components/steps/MainStep';
-import { ExtrasStep } from './components/steps/ExtrasStep'; // The Premium step
-import { EventStep } from './components/steps/EventStep'; // New Import
-import { SummaryStep } from './components/steps/SummaryStep'; // The final Summary step
+import { ExtrasStep } from './components/steps/ExtrasStep';
+import { EventStep } from './components/steps/EventStep';
+import { SummaryStep } from './components/steps/SummaryStep';
 import { RecommendationsView } from './components/RecommendationsView';
-import bg from './assets/bg.png';
 
+// Import both images
+import bgDesktop from './assets/bg.png';
+import bgMobile from './assets/bgm.jpeg';
 import logo from '/logo.png';
 
 function App() {
@@ -21,23 +23,20 @@ function App() {
     switch (currentStep) {
       case 'home':
         return <HomeStep onStart={() => setCurrentStep('salads')} t={t} lang={i18n.language} />;
-      case 'salads':
-        return <SaladStep logic={logic} />;
-      case 'mains':
-        return <MainStep logic={logic} />;
-      case 'extras':
-        return <ExtrasStep logic={logic} />;
-      case 'event':
-        return <EventStep logic={logic} />;
-      case 'summary':
-        return <SummaryStep logic={logic} />;
-      default:
-        return null;
+      case 'salads': return <SaladStep logic={logic} />;
+      case 'mains': return <MainStep logic={logic} />;
+      case 'extras': return <ExtrasStep logic={logic} />;
+      case 'event': return <EventStep logic={logic} />;
+      case 'summary': return <SummaryStep logic={logic} />;
+      default: return null;
     }
   };
 
+  const isHome = currentStep === 'home';
+
   return (
-    <div className="min-h-screen bg-slate-50 font-sans text-slate-950 pb-20">
+    <div className="min-h-screen bg-slate-50 font-sans text-slate-950">
+      {/* Navigation is now visible on ALL pages, including Home */}
       <Navigation
         logo={logo}
         logic={logic}
@@ -58,21 +57,28 @@ function App() {
         />
       )}
 
-      <main className={`relative ${currentStep === 'home' ? 'min-h-[90vh]' : 'min-h-screen'} flex items-center pt-24`}>
+      {/* Added pt-20 even for Home so the text doesn't hide behind the Navigation bar.
+          Removed overflow-hidden so users can scroll if the mobile screen is very short.
+      */}
+      <main className={`relative flex items-center min-h-screen pt-20 ${isHome ? 'pb-10' : 'pb-24'}`}>
         <div className="absolute inset-0 z-0 bg-black">
-          <img
-            src={bg}
-            alt="Table"
-            className="w-full h-full object-contain opacity-60"
-          />
+          <picture>
+            <source media="(min-width: 768px)" srcSet={bgDesktop} />
+            <img
+              src={bgMobile}
+              alt="Background"
+              className="w-full h-full object-cover md:object-contain opacity-70"
+            />
+          </picture>
         </div>
-        <section className="relative z-10 w-full px-4">{renderStep()}</section>
+
+        <section className="relative z-10 w-full px-4">
+          {renderStep()}
+        </section>
       </main>
 
-      {/* Summary Bar Component */}
-      {currentStep !== 'home' && <SummaryBar logic={logic} />}
-
-      {/* Testimonials and Footer components... */}
+      {/* SummaryBar remains hidden on Home for a cleaner start */}
+      {!isHome && <SummaryBar logic={logic} />}
     </div>
   );
 }
