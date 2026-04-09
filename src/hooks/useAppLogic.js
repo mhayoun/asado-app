@@ -22,6 +22,7 @@ export const useAppLogic = () => {
       type: ''
   });
 
+
   // Constants
   const SALAD_LIMIT = 8;
   const BASE_PRICE = 169;
