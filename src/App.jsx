@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { Phone, Mail, CheckCircle, ShoppingBag } from 'lucide-react';
 import './i18n';
 
+
 function App() {
   const { t, i18n } = useTranslation();
   const [selectedSalads, setSelectedSalads] = useState([]);
