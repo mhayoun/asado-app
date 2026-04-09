@@ -17,7 +17,12 @@ i18n
           selected: "נבחרו",
           items: "פריטים",
           back: "חזרה",
-          premium_toggle: "שדרגו לחבילת הכל כלול (+20 ש\"ח)?",
+          // Extras Step Keys
+          upgrade_package: "שדרוג חבילה",
+          premium_promo: "הפכו את הארוחה שלכם למושלמת עם החבילה המורחבת שלנו",
+          premium_title: "חבילת פרימיום",
+          premium_desc: "כולל שתייה קלה, סכו\"ם מהודר ומשלוח חינם",
+          // Navigation & Summary
           next_step: "לשלב הבא: מנות עיקריות",
           next_step_2: "שדרוג חבילה ?",
           view_summary: "לסיכום ההזמנה",
@@ -51,7 +56,12 @@ i18n
           selected: "Selected",
           items: "items",
           back: "Back",
-          premium_toggle: "Upgrade to All-Inclusive (+20 NIS)?",
+          // Extras Step Keys
+          upgrade_package: "Upgrade Package",
+          premium_promo: "Make your meal perfect with our expanded package",
+          premium_title: "Premium Package",
+          premium_desc: "Includes soft drinks, luxury cutlery, and free delivery",
+          // Navigation & Summary
           next_step: "Next: Main Courses",
           next_step_2: "Upgrade Package?",
           view_summary: "View Summary",
@@ -85,7 +95,12 @@ i18n
           selected: "Sélectionnés",
           items: "articles",
           back: "Retour",
-          premium_toggle: "Passer au Tout-Inclus (+20 NIS) ?",
+          // Extras Step Keys
+          upgrade_package: "Améliorer le forfait",
+          premium_promo: "Rendez votre repas parfait avec notre forfait étendu",
+          premium_title: "Forfait Premium",
+          premium_desc: "Comprend boissons fraîches, couverts de luxe et livraison gratuite",
+          // Navigation & Summary
           next_step: "Suivant : Plats principaux",
           next_step_2: "Améliorer le forfait ?",
           view_summary: "Voir le résumé",
