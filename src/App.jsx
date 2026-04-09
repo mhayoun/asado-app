@@ -8,6 +8,7 @@ import { MainStep } from './components/steps/MainStep';
 import { ExtrasStep } from './components/steps/ExtrasStep'; // The Premium step
 import { SummaryStep } from './components/steps/SummaryStep'; // The final Summary step
 import { RecommendationsView } from './components/RecommendationsView';
+import bg from './assets/bg.png';
 
 import logo from '/logo.png';
 
@@ -56,8 +57,11 @@ function App() {
 
       <main className={`relative ${currentStep === 'home' ? 'min-h-[90vh]' : 'min-h-screen'} flex items-center pt-24`}>
         <div className="absolute inset-0 z-0 bg-black">
-          <img src="https://images.unsplash.com/photo-1544148103-0773bf10d330?q=80&w=2000"
-            alt="Table" className="w-full h-full object-cover opacity-60" />
+          <img
+            src={bg}
+            alt="Table"
+            className="w-full h-full object-contain opacity-60"
+          />
         </div>
         <section className="relative z-10 w-full px-4">{renderStep()}</section>
       </main>

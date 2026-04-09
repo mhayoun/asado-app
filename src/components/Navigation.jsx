@@ -1,4 +1,3 @@
-// src/components/Navigation.jsx
 import { Globe, ChevronDown, Phone, ShoppingCart, MessageSquare } from 'lucide-react';
 
 export const Navigation = ({
@@ -12,30 +11,31 @@ export const Navigation = ({
   const cartCount = selectedSalads.length;
 
   return (
-    <nav className="p-3 fixed top-0 w-full z-50 flex justify-between items-center bg-white/80 backdrop-blur-md shadow-sm border-b border-white/20">
+    // Changed: bg-black/40 for transparency, border-white/10 for a subtle edge
+    <nav className="p-3 fixed top-0 w-full z-50 flex justify-between items-center bg-black/40 backdrop-blur-md shadow-lg border-b border-white/10">
       <div className="flex items-center gap-4 lg:gap-8">
         {/* Logo */}
         <img
           src={logo}
           alt="Logo"
-          className="h-10 w-auto cursor-pointer"
+          className="h-10 w-auto cursor-pointer brightness-110" // Added brightness to make logo pop
           onClick={() => {
             setShowRecommendations(false);
             setCurrentStep('home');
           }}
         />
 
-        {/* New Recommendations Link */}
+        {/* Recommendations Link */}
         <button
           onClick={(e) => {
-            e.preventDefault(); // Stop any default behavior
-            e.stopPropagation(); // Stop the click from bubbling up
-            console.log("Recommendations button clicked"); // Check your console!
+            e.preventDefault();
+            e.stopPropagation();
             setShowRecommendations(true);
           }}
-          className="relative z-[60] flex items-center gap-1.5 text-sm font-bold text-slate-700 hover:text-amber-800 transition-colors py-2 px-1"
+          // Changed: text-white/90 and hover:text-amber-400
+          className="relative z-[60] flex items-center gap-1.5 text-sm font-bold text-white/90 hover:text-amber-400 transition-colors py-2 px-1"
         >
-          <MessageSquare size={16} className="text-amber-700" />
+          <MessageSquare size={16} className="text-amber-500" />
           <span className="hidden sm:inline">המלצות</span>
         </button>
       </div>
@@ -45,20 +45,22 @@ export const Navigation = ({
         <div className="relative">
           <button
             onClick={() => setIsLangOpen(!isLangOpen)}
-            className="flex items-center gap-2 text-sm font-bold text-slate-700 hover:text-amber-800 transition-colors uppercase"
+            // Changed: text-white/90
+            className="flex items-center gap-2 text-sm font-bold text-white/90 hover:text-amber-400 transition-colors uppercase"
           >
-            <Globe size={16} className="text-amber-700" />
+            <Globe size={16} className="text-amber-500" />
             {i18n.language}
             <ChevronDown size={14} className={`transition-transform ${isLangOpen ? 'rotate-180' : ''}`} />
           </button>
 
           {isLangOpen && (
-            <ul className="absolute top-full mt-2 bg-white border border-slate-100 shadow-xl rounded-xl py-2 w-32 z-[60] left-0 right-auto rtl:right-0 rtl:left-auto">
+            // Changed: Dark background for the dropdown to match
+            <ul className="absolute top-full mt-2 bg-slate-900 border border-white/10 shadow-2xl rounded-xl py-2 w-32 z-[60] left-0 right-auto rtl:right-0 rtl:left-auto">
               {languages.map((lang) => (
                 <li
                   key={lang.code}
                   onClick={() => changeLanguage(lang.code)}
-                  className={`px-4 py-2 text-sm cursor-pointer ${i18n.language === lang.code ? 'text-amber-700 font-bold bg-amber-50' : 'text-slate-600 hover:bg-slate-50'}`}
+                  className={`px-4 py-2 text-sm cursor-pointer ${i18n.language === lang.code ? 'text-amber-500 font-bold bg-white/5' : 'text-white/70 hover:bg-white/10'}`}
                 >
                   {lang.label}
                 </li>
@@ -68,8 +70,8 @@ export const Navigation = ({
         </div>
 
         {/* Phone Link */}
-        <a href="tel:0527977394" className="hidden lg:flex items-center gap-2 font-medium text-amber-950 hover:text-amber-700">
-          <Phone size={16} /> 052-7977394
+        <a href="tel:0527977394" className="hidden lg:flex items-center gap-2 font-medium text-white/90 hover:text-amber-500 transition-colors">
+          <Phone size={16} className="text-amber-500" /> 052-7977394
         </a>
 
         {/* Cart Icon */}
@@ -77,9 +79,10 @@ export const Navigation = ({
           className="relative cursor-pointer group"
           onClick={() => currentStep !== 'home' && setCurrentStep('summary')}
         >
-          <ShoppingCart className="text-amber-800 group-hover:scale-110 transition-transform" size={22} />
+          {/* Changed: text-amber-500 */}
+          <ShoppingCart className="text-amber-500 group-hover:scale-110 transition-transform" size={22} />
           {cartCount > 0 && (
-            <span className="absolute -top-2 -right-2 bg-amber-600 text-white text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center animate-bounce">
+            <span className="absolute -top-2 -right-2 bg-amber-600 text-white text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center animate-bounce shadow-md">
               {cartCount}
             </span>
           )}

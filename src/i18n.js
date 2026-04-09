@@ -17,6 +17,11 @@ i18n
           selected: "נבחרו",
           items: "פריטים",
           back: "חזרה",
+          // SummaryBar Keys
+          salads_selected: "סלטים",
+          main_selected: "מנה נבחרה",
+          select_main: "בחרו עיקרית",
+          per_person: "למנה",
           // Extras Step Keys
           upgrade_package: "שדרוג חבילה",
           premium_promo: "הפכו את הארוחה שלכם למושלמת עם החבילה המורחבת שלנו",
@@ -56,6 +61,11 @@ i18n
           selected: "Selected",
           items: "items",
           back: "Back",
+          // SummaryBar Keys
+          salads_selected: "Salads",
+          main_selected: "Main selected",
+          select_main: "Select a main",
+          per_person: "per person",
           // Extras Step Keys
           upgrade_package: "Upgrade Package",
           premium_promo: "Make your meal perfect with our expanded package",
@@ -95,6 +105,11 @@ i18n
           selected: "Sélectionnés",
           items: "articles",
           back: "Retour",
+          // SummaryBar Keys
+          salads_selected: "Salades",
+          main_selected: "Plat choisi",
+          select_main: "Choisir un plat",
+          per_person: "par personne",
           // Extras Step Keys
           upgrade_package: "Améliorer le forfait",
           premium_promo: "Rendez votre repas parfait avec notre forfait étendu",
