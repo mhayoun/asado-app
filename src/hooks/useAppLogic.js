@@ -41,10 +41,18 @@ export const useAppLogic = () => {
   }, [i18n.language]);
 
   // Logic Helpers
-  const toggleSalad = (id) => {
+  const toggleSalad = (salad) => {
     setSelectedSalads((prev) => {
-      if (prev.includes(id)) return prev.filter((item) => item !== id);
-      if (prev.length < SALAD_LIMIT) return [...prev, id];
+      // Check if the salad is already in the basket by ID
+      const exists = prev.find((item) => item.id === salad.id);
+
+      if (exists) {
+        return prev.filter((item) => item.id !== salad.id);
+      }
+
+      if (prev.length < SALAD_LIMIT) {
+        return [...prev, salad];
+      }
       return prev;
     });
   };
