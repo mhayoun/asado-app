@@ -23,7 +23,7 @@ export const useAppLogic = () => {
   });
 
   // Constants
-  const SALAD_LIMIT = 2;
+  const SALAD_LIMIT = 8;
   const BASE_PRICE = 169;
   const PREMIUM_ADDON = 20;
 
