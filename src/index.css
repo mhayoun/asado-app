@@ -1,0 +1,6 @@
+@import "tailwindcss";
+
+/* Your custom RTL fix can stay below */
+[dir="rtl"] .mirror-icon {
+  transform: scaleX(-1);
+}
