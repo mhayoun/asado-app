@@ -28,7 +28,22 @@ export const initialSalads = [
 ];
 
 export const mainDishes = [
-  { id: 101, name: "אסאדו ברוטב מתוק", image: "https://placehold.co/400x300?text=אסאדו", description: "בשר אסאדו בבישול ארוך ברוטב ברביקיו דבש" },
-  { id: 102, name: "פרגית עסיסית", image: "https://placehold.co/400x300?text=פרגית", description: "סטייק פרגית על האש בתיבול ביתי עדין" },
-  { id: 103, name: "קציצות בקר", image: "https://placehold.co/400x300?text=קציצות", description: "קציצות בשר בקר מובחר ברוטב עגבניות עשיר" },
+  {
+    id: 101,
+    image: "https://placehold.co/400x300?text=Asado",
+    nameKey: "main_asado_name",
+    descKey: "main_asado_desc"
+  },
+  {
+    id: 102,
+    image: "https://placehold.co/400x300?text=Pargit",
+    nameKey: "main_pargit_name",
+    descKey: "main_pargit_desc"
+  },
+  {
+    id: 103,
+    image: "https://placehold.co/400x300?text=Meatballs",
+    nameKey: "main_meatballs_name",
+    descKey: "main_meatballs_desc"
+  },
 ];
