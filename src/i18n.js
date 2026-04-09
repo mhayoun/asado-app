@@ -9,35 +9,54 @@ i18n
     resources: {
       he: {
         translation: {
-          welcome: "שבת בטוב טעם - עם מעדני אסאדו",
-          cta: "מתחילים להרכיב את התפריט שלכם",
-          salad_limit: "בחרת {{count}} מתוך 8 סלטים",
-          asado_sweet: "אסאדו ברוטב מתוק",
-          pargit: "פרגית עסיסית בתיבול ביתי",
-          couscous: "קוסקוס אותנטי",
-          kashrut: "בד\"ץ העדה החרדית | מחפוד | רובין | הרב אפרתי"
+          start_building: "מתחילים להרכיב את התפריט שלכם",
+          home_description: "בחרו את המנות המועדפות עליכם לארוחת שבת מושלמת",
+          start_now: "מתחילים",
+          salads: "בחירת סלטים",
+          selected: "נבחרו",
+          premium_toggle: "שדרגו לחבילת הכל כלול (+20 ש\"ח)?",
+          next_step: "לשלב הבא: מנות עיקריות",
+          recommendations: "המלצות",
+          personal_area: "אזור אישי",
+          what_clients_say: "מה הלקוחות אומרים",
+          kashrut: "בד\"ץ העדה החרדית | מחפוד | רובין | הרב אפרתי",
+          // שמות סלטים לדוגמה
+          salad_hummus: "חומוס ביתי",
+          salad_matbucha: "מטבוחה מרוקאית"
         }
       },
       en: {
         translation: {
-          welcome: "Shabbat in Style - With Asado Delicacies",
-          cta: "Start Building Your Menu",
-          salad_limit: "Selected {{count}} of 8 salads",
-          asado_sweet: "Asado in Sweet Sauce",
-          pargit: "Juicy Grilled Chicken",
-          couscous: "Authentic Couscous",
-          kashrut: "Badatz Edah HaChareidit | Mahpud | Rubin | Rabbi Efrati"
+          start_building: "Start Building Your Menu",
+          home_description: "Choose your favorite dishes for the perfect Shabbat meal",
+          start_now: "Start Now",
+          salads: "Select Salads",
+          selected: "Selected",
+          premium_toggle: "Upgrade to All-Inclusive (+20 NIS)?",
+          next_step: "Next: Main Courses",
+          recommendations: "Reviews",
+          personal_area: "My Account",
+          what_clients_say: "What Our Clients Say",
+          kashrut: "Badatz Edah HaChareidit | Mahpud | Rubin | Rabbi Efrati",
+          salad_hummus: "Homemade Hummus",
+          salad_matbucha: "Moroccan Matbucha"
         }
       },
       fr: {
         translation: {
-          welcome: "Chabbat avec Goût - Délices d'Asado",
-          cta: "Composer votre menu",
-          salad_limit: "{{count}} sur 8 salades sélectionnées",
-          asado_sweet: "Boeuf Asado Sauce Sucrée",
-          pargit: "Poulet Grillé Juteux",
-          couscous: "Couscous Authentique",
-          kashrut: "Cacher: Badatz Edah HaChareidit | Mahpud | Rubin"
+          start_building: "Composez votre menu",
+          home_description: "Choisissez vos plats préférés pour un repas de Chabbat parfait",
+          start_now: "Commencer",
+          salads: "Sélection de salades",
+          selected: "Sélectionnés",
+          premium_toggle: "Passer au Tout-Inclus (+20 NIS) ?",
+          next_step: "Suivant : Plats principaux",
+          recommendations: "Avis",
+          personal_area: "Mon Compte",
+          what_clients_say: "Ce que disent nos clients",
+          kashrut: "Cacher: Badatz Edah HaChareidit | Mahpud | Rubin",
+          salad_hummus: "Houmous Maison",
+          salad_matbucha: "Matbucha Marocaine"
         }
       }
     },
