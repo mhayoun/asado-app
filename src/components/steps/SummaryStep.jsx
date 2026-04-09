@@ -41,7 +41,7 @@ export const SummaryStep = ({ logic }) => {
 
         {/* Back Button */}
         <button
-          onClick={() => setCurrentStep('extras')}
+          onClick={() => setCurrentStep('event')}
           className="flex items-center justify-center gap-2 text-slate-500 font-bold py-2 hover:text-slate-800 transition-colors"
         >
           <ArrowLeft size={18} className={i18n?.language === 'he' ? 'rotate-180' : ''} />

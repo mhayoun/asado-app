@@ -6,6 +6,7 @@ import { HomeStep } from './components/steps/HomeStep';
 import { SaladStep } from './components/steps/SaladStep';
 import { MainStep } from './components/steps/MainStep';
 import { ExtrasStep } from './components/steps/ExtrasStep'; // The Premium step
+import { EventStep } from './components/steps/EventStep'; // New Import
 import { SummaryStep } from './components/steps/SummaryStep'; // The final Summary step
 import { RecommendationsView } from './components/RecommendationsView';
 import bg from './assets/bg.png';
@@ -14,7 +15,7 @@ import logo from '/logo.png';
 
 function App() {
   const logic = useAppLogic();
-  const { t, i18n, currentStep, setCurrentStep,showRecommendations, setShowRecommendations } = logic;
+  const { t, i18n, currentStep, setCurrentStep, showRecommendations, setShowRecommendations } = logic;
 
   const renderStep = () => {
     switch (currentStep) {
@@ -26,6 +27,8 @@ function App() {
         return <MainStep logic={logic} />;
       case 'extras':
         return <ExtrasStep logic={logic} />;
+      case 'event':
+        return <EventStep logic={logic} />;
       case 'summary':
         return <SummaryStep logic={logic} />;
       default:

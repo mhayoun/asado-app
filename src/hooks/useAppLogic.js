@@ -13,6 +13,15 @@ export const useAppLogic = () => {
   const [isLangOpen, setIsLangOpen] = useState(false);
   const [showRecommendations, setShowRecommendations] = useState(false);
 
+  const [eventData, setEventData] = useState({
+      date: '',
+      time: '',
+      location: '',
+      guests: 30,
+      servers: 1,
+      type: ''
+  });
+
   // Constants
   const SALAD_LIMIT = 2;
   const BASE_PRICE = 169;
@@ -47,9 +56,16 @@ export const useAppLogic = () => {
 
   const totalPrice = isPremiumPackage ? BASE_PRICE + PREMIUM_ADDON : BASE_PRICE;
 
+  const updateEventData = (field, value) => {
+    setEventData(prev => ({ ...prev, [field]: value }));
+  };
+
   return {
     t,
     i18n,
+    eventData,       // Ensure this is here
+    updateEventData, // Ensure this is here
+    setCurrentStep,
     currentStep,
     setCurrentStep,
     selectedSalads,
